@@ -15,7 +15,7 @@ texture = ExtResource("1_8afob")
 offset = Vector2(2, 2)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1373145209]
-position = Vector2(8, -3)
+position = Vector2(10, -1)
 gizmo_extents = 1.5
 
 [node name="Node2D" type="Node2D" parent="." unique_id=894979153]

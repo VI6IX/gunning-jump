@@ -41,12 +41,9 @@ func shoot():
 			velocity = direction * RECOIL
 			rotation_speed = fast_spinning_speed
 			var tween = create_tween()
-			tween.tween_property(self, "rotation_speed", default_rotation_speed, 1)
+			tween.tween_property(self, "rotation_speed", default_rotation_speed, 0.5)
 			can_shoot = false
 			fire_rate.start()
-
-func interpolate_rotation_speed():
-	pass
 
 func rotate_gun(delta):
 	rotation += rotation_speed * delta
