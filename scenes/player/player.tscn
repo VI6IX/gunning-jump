@@ -11,8 +11,8 @@ motion_mode = 1
 script = ExtResource("1_dovo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1322566488]
-position = Vector2(2, 1)
 texture = ExtResource("1_8afob")
+offset = Vector2(2, 2)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1373145209]
 position = Vector2(8, -3)

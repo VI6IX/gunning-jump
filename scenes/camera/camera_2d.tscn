@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dbe4jxyj0n7xx"]
+
+[ext_resource type="Script" uid="uid://cw0kc8448ew6d" path="res://scenes/camera/camera_2d.gd" id="1_n5sbo"]
+
+[node name="Camera2D" type="Camera2D" unique_id=109566839]
+script = ExtResource("1_n5sbo")
+
+[node name="PositionRefreshRate" type="Timer" parent="." unique_id=2096469772]
+wait_time = 0.009999999999999998
+autostart = true
+
+[connection signal="timeout" from="PositionRefreshRate" to="." method="_on_position_refresh_rate_timeout"]
