@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cadv51p4j4u3u"]
+
+[ext_resource type="Texture2D" uid="uid://duko6oo8wrmjh" path="res://assets/sprites/revolver_16.png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://bpflbghopb4k3" path="res://scenes/player/player.gd" id="1_dovo2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
+radius = 3.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D" unique_id=2002667588]
+motion_mode = 1
+script = ExtResource("1_dovo2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1322566488]
+texture = ExtResource("1_8afob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2058334934]
+position = Vector2(1, -2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_dovo2")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1373145209]
+position = Vector2(8, -3)
+gizmo_extents = 1.5
