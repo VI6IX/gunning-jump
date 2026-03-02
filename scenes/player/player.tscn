@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://duko6oo8wrmjh" path="res://assets/sprites/revolver_16.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bpflbghopb4k3" path="res://scenes/player/player.gd" id="1_dovo2"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
-radius = 3.1619816
-height = 17.083359
+[sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
+radius = 6.0000005
 
 [node name="Player" type="CharacterBody2D" unique_id=2002667588]
 motion_mode = 1
 script = ExtResource("1_dovo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1322566488]
+position = Vector2(2, 1)
 texture = ExtResource("1_8afob")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1373145209]
@@ -20,11 +20,12 @@ gizmo_extents = 1.5
 
 [node name="Node2D" type="Node2D" parent="." unique_id=894979153]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1822612022]
-position = Vector2(-1, 2.9802322e-08)
-rotation = 1.2353549
-shape = SubResource("CapsuleShape2D_dovo2")
-
 [node name="FireRate" type="Timer" parent="." unique_id=1526084540]
+unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1266638103]
+shape = SubResource("CircleShape2D_dovo2")
+
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]
