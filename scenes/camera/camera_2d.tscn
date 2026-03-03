@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cw0kc8448ew6d" path="res://scenes/camera/camera_2d.gd" id="1_n5sbo"]
 
 [node name="Camera2D" type="Camera2D" unique_id=109566839]
-zoom = Vector2(1.5, 1.5)
 script = ExtResource("1_n5sbo")
 
 [node name="PositionRefreshRate" type="Timer" parent="." unique_id=2096469772]

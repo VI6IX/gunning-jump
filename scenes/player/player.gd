@@ -53,7 +53,11 @@ func shoot() -> void:
 	else:
 		if Input.is_action_just_pressed("shoot"):
 			velocity = direction * RECOIL
-			rotation_speed = fast_spinning_speed
+			if rotation_speed > 0:
+				rotation_speed = fast_spinning_speed * -1
+			elif rotation_speed < 0:
+				rotation_speed = fast_spinning_speed
+			
 			instantiate_bullet()
 			tween_rotation_speed()
 			can_shoot = false
@@ -61,7 +65,10 @@ func shoot() -> void:
 
 func tween_rotation_speed():
 	var tween = create_tween()
-	tween.tween_property(self, "rotation_speed", default_rotation_speed, 0.5)
+	if rotation_speed > 0:
+		tween.tween_property(self, "rotation_speed", default_rotation_speed, 0.5)
+	elif rotation_speed < 0:
+		tween.tween_property(self, "rotation_speed", default_rotation_speed * -1, 0.5)
 
 func _on_fire_rate_timeout() -> void:
 	can_shoot = true
