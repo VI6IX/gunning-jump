@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bcpapokmpoths" path="res://assets/sprites/particle_square_16.png" id="1_w7gg4"]
 
 [sub_resource type="Curve" id="Curve_brruq"]
-_data = [Vector2(0, 0.29213488), 0.0, 0.0, 0, 0, Vector2(0.20744681, 0.44943827), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.764045), 0.0, 0.0, 0, 0, Vector2(0.20744681, 0.44943827), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_rijgi"]
@@ -11,17 +11,14 @@ offsets = PackedFloat32Array(0.16049382, 0.75308645, 1)
 colors = PackedColorArray(0.16078432, 0.16078432, 0.16078432, 0.6666667, 0.84313726, 0.84313726, 0.84313726, 0.49803922, 0.6745098, 0.6745098, 0.6745098, 0)
 
 [node name="Smoke" type="CPUParticles2D" unique_id=1245512568]
+z_index = 2
 emitting = false
 amount = 32
 texture = ExtResource("1_w7gg4")
-lifetime = 2.0
 one_shot = true
-randomness = 1.0
 direction = Vector2(0, -1)
-spread = 30.0
-gravity = Vector2(0, -70)
-initial_velocity_min = 5.0
-initial_velocity_max = 30.0
+spread = 20.0
+gravity = Vector2(0, -30)
 angle_max = 399.2
 scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_brruq")

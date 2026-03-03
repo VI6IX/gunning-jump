@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var marker_2d: Marker2D = $Marker2D
 @export var bullet: PackedScene
 @export var muzzle_flash: CPUParticles2D
+@export var smoke: CPUParticles2D
 
 
 const GRAVITY: float = 800.0
@@ -40,12 +41,12 @@ func rotate_gun(delta) -> void:
 	rotation += rotation_speed * delta
 
 func instantiate_bullet() -> void:
-	muzzle_flash.set_emitting(true)
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.global_position = marker_2d.global_position
 	bullet_instance.global_rotation = marker_2d.global_rotation
 	bullet_instance.set_as_top_level(true)
-	add_child(bullet_instance)
+	get_parent().add_child(bullet_instance)
+	# Adds an instance of bullet to the Scene the Player is in
 
 func shoot() -> void:
 	if can_shoot == false:
@@ -59,6 +60,8 @@ func shoot() -> void:
 				rotation_speed = fast_spinning_speed
 			
 			instantiate_bullet()
+			muzzle_flash.set_emitting(true)
+			smoke.set_emitting(true)
 			tween_rotation_speed()
 			can_shoot = false
 			fire_rate.start()
