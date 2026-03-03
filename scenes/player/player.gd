@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var fire_rate: Timer = %FireRate
 @onready var marker_2d: Marker2D = $Marker2D
+@export var bullet: PackedScene
 
 const GRAVITY: float = 800.0
 const RECOIL: float = 500.0
@@ -27,26 +28,37 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		rotation_speed = default_rotation_speed
 
-func update_direction():
+func update_direction() -> void:
 	direction = (global_position - marker_2d.global_position).normalized()
 
-func apply_gravity(delta):
+func apply_gravity(delta) -> void:
 	velocity.y += GRAVITY * delta
 
-func shoot():
+func rotate_gun(delta) -> void:
+	rotation += rotation_speed * delta
+
+func instantiate_bullet() -> void:
+	var bullet_instance = bullet.instantiate()
+	bullet_instance.global_position = marker_2d.global_position
+	bullet_instance.global_rotation = marker_2d.global_rotation
+	bullet_instance.set_as_top_level(true)
+	add_child(bullet_instance)
+
+func shoot() -> void:
 	if can_shoot == false:
 		return
 	else:
 		if Input.is_action_just_pressed("shoot"):
 			velocity = direction * RECOIL
 			rotation_speed = fast_spinning_speed
-			var tween = create_tween()
-			tween.tween_property(self, "rotation_speed", default_rotation_speed, 0.5)
+			instantiate_bullet()
+			tween_rotation_speed()
 			can_shoot = false
 			fire_rate.start()
 
-func rotate_gun(delta):
-	rotation += rotation_speed * delta
+func tween_rotation_speed():
+	var tween = create_tween()
+	tween.tween_property(self, "rotation_speed", default_rotation_speed, 0.5)
 
 func _on_fire_rate_timeout() -> void:
 	can_shoot = true
