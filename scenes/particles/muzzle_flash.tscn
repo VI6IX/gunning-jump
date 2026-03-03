@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dqofy7yf3ekp2"]
+
+[ext_resource type="Texture2D" uid="uid://bcpapokmpoths" path="res://assets/sprites/muzzle_flash_16.png" id="1_00jo1"]
+
+[sub_resource type="Curve" id="Curve_3txrp"]
+_data = [Vector2(0, 0), 0.0, 33.093624, 0, 0, Vector2(0.35106385, 1), 0.42859477, 0.42859477, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="MuzzleFlash" type="Node2D" unique_id=886764364]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1729395586]
+emitting = false
+amount = 16
+texture = ExtResource("1_00jo1")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 31.7
+initial_velocity_max = 128.71
+scale_amount_curve = SubResource("Curve_3txrp")

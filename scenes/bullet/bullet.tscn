@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dfl3flvsspxtd"]
 
 [ext_resource type="Texture2D" uid="uid://v7mc45yl21aj" path="res://assets/sprites/bullet_16.png" id="1_7c8un"]
+[ext_resource type="Script" uid="uid://kcxpre78pivh" path="res://scenes/bullet/bullet.gd" id="1_83itf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_83itf"]
 radius = 4.0
 
 [node name="Bullet" type="Area2D" unique_id=1634369734]
+script = ExtResource("1_83itf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=351856658]
 texture = ExtResource("1_7c8un")

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://duko6oo8wrmjh" path="res://assets/sprites/revolver_16.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bpflbghopb4k3" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://dfl3flvsspxtd" path="res://scenes/bullet/bullet.tscn" id="2_gmlin"]
+[ext_resource type="PackedScene" uid="uid://dqofy7yf3ekp2" path="res://scenes/particles/muzzle_flash.tscn" id="3_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 radius = 6.0000005
@@ -11,6 +12,10 @@ radius = 6.0000005
 motion_mode = 1
 script = ExtResource("1_dovo2")
 bullet = ExtResource("2_gmlin")
+
+[node name="MuzzleFlash" parent="." unique_id=1729395586 instance=ExtResource("3_lvxji")]
+unique_name_in_owner = true
+position = Vector2(10, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1322566488]
 texture = ExtResource("1_8afob")
