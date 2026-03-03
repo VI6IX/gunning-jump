@@ -15,6 +15,7 @@ z_index = 2
 emitting = false
 amount = 32
 texture = ExtResource("1_w7gg4")
+lifetime = 0.5
 one_shot = true
 direction = Vector2(0, -1)
 spread = 20.0
