@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://dqofy7yf3ekp2"]
 
-[ext_resource type="Texture2D" uid="uid://bcpapokmpoths" path="res://assets/sprites/muzzle_flash_16.png" id="1_00jo1"]
+[ext_resource type="Texture2D" uid="uid://bcpapokmpoths" path="res://assets/sprites/particle_square_16.png" id="1_00jo1"]
 
 [sub_resource type="Curve" id="Curve_3txrp"]
 _data = [Vector2(0, 0), 0.0, 33.093624, 0, 0, Vector2(0.35106385, 1), 0.42859477, 0.42859477, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="MuzzleFlash" type="Node2D" unique_id=886764364]
+[sub_resource type="Gradient" id="Gradient_00jo1"]
+offsets = PackedFloat32Array(0.024691358, 0.24074075, 0.4074074, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.8137256, 0.06862748, 1, 1, 0.8000001, 0, 1, 1, 0.100000024, 0, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1729395586]
+[node name="MuzzleFlash" type="CPUParticles2D" unique_id=1729395586]
 emitting = false
 amount = 16
 texture = ExtResource("1_00jo1")
@@ -19,3 +21,4 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 31.7
 initial_velocity_max = 128.71
 scale_amount_curve = SubResource("Curve_3txrp")
+color_ramp = SubResource("Gradient_00jo1")

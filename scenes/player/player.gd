@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var fire_rate: Timer = %FireRate
 @onready var marker_2d: Marker2D = $Marker2D
 @export var bullet: PackedScene
-@onready var muzzle_flash: Node2D = %MuzzleFlash.get_child(0)
+@export var muzzle_flash: CPUParticles2D
 
 
 const GRAVITY: float = 800.0

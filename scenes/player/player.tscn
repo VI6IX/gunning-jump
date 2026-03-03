@@ -8,10 +8,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 radius = 6.0000005
 
-[node name="Player" type="CharacterBody2D" unique_id=2002667588]
+[node name="Player" type="CharacterBody2D" unique_id=2002667588 node_paths=PackedStringArray("muzzle_flash")]
 motion_mode = 1
 script = ExtResource("1_dovo2")
 bullet = ExtResource("2_gmlin")
+muzzle_flash = NodePath("MuzzleFlash")
 
 [node name="MuzzleFlash" parent="." unique_id=1729395586 instance=ExtResource("3_lvxji")]
 unique_name_in_owner = true
