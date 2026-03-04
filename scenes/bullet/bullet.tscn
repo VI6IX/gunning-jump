@@ -4,11 +4,19 @@
 [ext_resource type="Script" uid="uid://kcxpre78pivh" path="res://scenes/bullet/bullet.gd" id="1_83itf"]
 [ext_resource type="PackedScene" uid="uid://55jyq6sx3cj8" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="3_c6pnf"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6pnf"]
+radius = 3.0
+height = 8.0
+
 [node name="Bullet" type="Node2D" unique_id=571650027]
 script = ExtResource("1_83itf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=351856658]
 texture = ExtResource("1_7c8un")
 
-[node name="HitboxComponent" parent="." unique_id=1963439517 node_paths=PackedStringArray("parent") instance=ExtResource("3_c6pnf")]
-parent = NodePath("..")
+[node name="HitboxComponent" parent="." unique_id=1963439517 instance=ExtResource("3_c6pnf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1890414854]
+position = Vector2(-1, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_c6pnf")

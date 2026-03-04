@@ -1,12 +1,18 @@
-extends Area2D
+class_name HitboxComponent extends Area2D
 
 @export var parent: Node2D
+@export var HealthComponent: Node2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(str(parent.name))
+	if !parent:
+		push_error("This HitboxComponent has no parent assigned.")
+		return
+	else:
+		print(str(parent.name))
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func deal_damage(attack):
+	if !HealthComponent:
+		push_error("HealthComponent not found.")
+		return
+	else:
+		pass
