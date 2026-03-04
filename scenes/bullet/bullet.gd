@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 const BULLET_SPEED: float = 900.0
 

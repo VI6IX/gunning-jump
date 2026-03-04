@@ -18,7 +18,7 @@ size = Vector2(714.375, 59.15625)
 [node name="Main" type="Node2D" unique_id=1324312788]
 
 [node name="Player" parent="." unique_id=2002667588 instance=ExtResource("2_0wfyh")]
-position = Vector2(272, 88)
+position = Vector2(305, -1178)
 motion_mode = 0
 
 [node name="Camera2D" parent="." unique_id=109566839 node_paths=PackedStringArray("player") instance=ExtResource("3_sugp2")]

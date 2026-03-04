@@ -6,7 +6,6 @@ extends CharacterBody2D
 @export var muzzle_flash: CPUParticles2D
 @export var smoke: CPUParticles2D
 
-
 const GRAVITY: float = 800.0
 const RECOIL: float = 500.0
 var default_rotation_speed: float = 10.0
