@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://v7mc45yl21aj" path="res://assets/sprites/bullet_16.png" id="1_7c8un"]
 [ext_resource type="Script" uid="uid://kcxpre78pivh" path="res://scenes/bullet/bullet.gd" id="1_83itf"]
 [ext_resource type="PackedScene" uid="uid://55jyq6sx3cj8" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="3_c6pnf"]
+[ext_resource type="PackedScene" uid="uid://dic7yx0fswwbh" path="res://scenes/components/health_component/health_component.tscn" id="4_0vdx3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6pnf"]
 radius = 3.0
@@ -14,11 +15,17 @@ script = ExtResource("1_83itf")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=351856658]
 texture = ExtResource("1_7c8un")
 
-[node name="HitboxComponent" parent="." unique_id=1963439517 instance=ExtResource("3_c6pnf")]
+[node name="HitboxComponent" parent="." unique_id=1963439517 node_paths=PackedStringArray("parent", "health_component") instance=ExtResource("3_c6pnf")]
 collision_layer = 4
 collision_mask = 8
+parent = NodePath("..")
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1890414854]
 position = Vector2(-1, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_c6pnf")
+
+[node name="HealthComponent" parent="." unique_id=1657868059 node_paths=PackedStringArray("parent") instance=ExtResource("4_0vdx3")]
+parent = NodePath("..")
+max_health = 1.0

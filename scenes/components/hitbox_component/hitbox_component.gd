@@ -1,18 +1,20 @@
 class_name HitboxComponent extends Area2D
 
 @export var parent: Node2D
-@export var HealthComponent: Node2D
+@export var health_component: HealthComponent
 
-func _ready() -> void:
-	if !parent:
-		push_error("This HitboxComponent has no parent assigned.")
-		return
-	else:
-		print(str(parent.name))
+@export var damage: float = 1
 
-func deal_damage(damage):
-	if !HealthComponent:
+func deal_damage(damage_value):
+	if !health_component:
 		push_error("HealthComponent not found.")
 		return
 	else:
-		pass
+		health_component.deplete_health(damage_value)
+
+func _on_area_entered(area: Area2D) -> void:
+	if !area.has_method("deal_damage"):
+		push_error("Attempting to damage an object that has no HitboxComponent")
+		return
+	else:
+		area.deal_damage(damage)
