@@ -10,7 +10,7 @@ func _ready() -> void:
 	else:
 		print(str(parent.name))
 
-func deal_damage(attack):
+func deal_damage(damage):
 	if !HealthComponent:
 		push_error("HealthComponent not found.")
 		return
