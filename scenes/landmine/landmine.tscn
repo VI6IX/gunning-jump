@@ -30,7 +30,7 @@ shape = SubResource("CapsuleShape2D_iy8xb")
 
 [node name="HealthComponent" parent="." unique_id=1657868059 node_paths=PackedStringArray("parent") instance=ExtResource("3_nx6xm")]
 parent = NodePath("..")
-max_health = 6.0
+max_health = 4.0
 
 [node name="HitboxComponent2" parent="." unique_id=184455639 node_paths=PackedStringArray("parent", "health_component") instance=ExtResource("2_vwu5p")]
 collision_layer = 8

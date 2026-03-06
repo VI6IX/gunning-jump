@@ -79,7 +79,7 @@ func _on_fire_rate_timeout() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_collision_layer_value(1) or area.get_collision_layer_value(5):
-		velocity = -velocity
+		velocity.x = velocity.x * -1
 		rotation_speed = -rotation_speed
 	elif area.get_collision_layer_value(4) or area.get_collision_layer_value(6):
 		has_died.emit()
