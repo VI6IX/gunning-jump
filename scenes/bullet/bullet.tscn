@@ -29,3 +29,6 @@ shape = SubResource("CapsuleShape2D_c6pnf")
 [node name="HealthComponent" parent="." unique_id=1657868059 node_paths=PackedStringArray("parent") instance=ExtResource("4_0vdx3")]
 parent = NodePath("..")
 max_health = 1.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1247763931]
+unique_name_in_owner = true
