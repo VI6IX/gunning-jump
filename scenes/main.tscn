@@ -19,20 +19,20 @@ size = Vector2(698, 71)
 [node name="Main" type="Node2D" unique_id=1324312788]
 
 [node name="Player" parent="." unique_id=2002667588 instance=ExtResource("2_0wfyh")]
-position = Vector2(305, -1178)
+position = Vector2(175, 117)
 motion_mode = 0
 
 [node name="Camera2D" parent="." unique_id=109566839 node_paths=PackedStringArray("player") instance=ExtResource("3_sugp2")]
 limit_left = 0
-limit_right = 640
-limit_bottom = 358
+limit_right = 360
+limit_bottom = 395
 player = NodePath("../Player")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1388245386]
 collision_mask = 6
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1547620608]
-position = Vector2(652.375, -4116)
+position = Vector2(372, -4038)
 shape = SubResource("RectangleShape2D_sugp2")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=1850737239]
@@ -40,10 +40,11 @@ position = Vector2(-11.875, -4117)
 shape = SubResource("RectangleShape2D_jyhfs")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=1566328911]
-position = Vector2(307.8125, -8693.422)
+position = Vector2(185, -8609)
 shape = SubResource("RectangleShape2D_tbgi4")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1748373847]
+position = Vector2(-152, -22)
 collision_layer = 32
 collision_mask = 6
 
@@ -60,5 +61,4 @@ scale = Vector2(17.488722, 2.2299943)
 color = Color(0.6123906, 0.41004652, 0.187949, 1)
 
 [node name="Landmine" parent="." unique_id=1135800262 instance=ExtResource("3_jyhfs")]
-position = Vector2(338, 320)
-scale = Vector2(14.802221, 14.802221)
+position = Vector2(296, 320)

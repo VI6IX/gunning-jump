@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("debug_reset_position"): #RESET TO CENTER
-		position = Vector2(120, 120)
+		position = Vector2(175, 120)
 		velocity = Vector2.ZERO
 		rotation_speed = default_rotation_speed
 
