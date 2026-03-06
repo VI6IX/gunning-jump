@@ -9,8 +9,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 radius = 6.0000005
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p47bc"]
+radius = 3.5601199
+height = 20.0
+
 [node name="Player" type="CharacterBody2D" unique_id=2002667588 node_paths=PackedStringArray("muzzle_flash", "smoke")]
 z_index = 1
+collision_layer = 2
+collision_mask = 33
 motion_mode = 1
 script = ExtResource("1_dovo2")
 bullet = ExtResource("2_gmlin")
@@ -43,4 +49,14 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1266638103]
 shape = SubResource("CircleShape2D_dovo2")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=537538997]
+collision_layer = 2
+collision_mask = 57
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=746746543]
+position = Vector2(1, 0)
+rotation = 0.89963335
+shape = SubResource("CapsuleShape2D_p47bc")
+
 [connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

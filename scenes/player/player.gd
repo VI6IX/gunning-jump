@@ -15,6 +15,8 @@ var fast_spinning_speed: float = 30.0
 var can_shoot: bool = true
 var direction: Vector2
 
+signal has_died
+
 func _ready() -> void:
 	rotation_speed = default_rotation_speed
 
@@ -71,6 +73,14 @@ func tween_rotation_speed():
 		tween.tween_property(self, "rotation_speed", default_rotation_speed, 0.5)
 	elif rotation_speed < 0:
 		tween.tween_property(self, "rotation_speed", default_rotation_speed * -1, 0.5)
-
+ 
 func _on_fire_rate_timeout() -> void:
 	can_shoot = true
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_collision_layer_value(1) or area.get_collision_layer_value(5):
+		velocity = -velocity
+		rotation_speed = -rotation_speed
+	elif area.get_collision_layer_value(4) or area.get_collision_layer_value(6):
+		has_died.emit()
+		print("Player has_died signal emitted.")

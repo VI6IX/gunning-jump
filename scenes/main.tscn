@@ -4,9 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://csmcya0gh24gr" path="res://scenes/landmine/landmine.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dbe4jxyj0n7xx" path="res://scenes/camera/camera_2d.tscn" id="3_sugp2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
-size = Vector2(655, 70.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(24.75, 9094)
 
@@ -15,6 +12,9 @@ size = Vector2(23.75, 9094)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
 size = Vector2(714.375, 59.15625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(698, 71)
 
 [node name="Main" type="Node2D" unique_id=1324312788]
 
@@ -28,31 +28,36 @@ limit_right = 640
 limit_bottom = 358
 player = NodePath("../Player")
 
-[node name="Bounds" type="StaticBody2D" parent="." unique_id=692232391]
+[node name="Area2D" type="Area2D" parent="." unique_id=1388245386]
+collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds" unique_id=186265077]
-position = Vector2(322, 377)
-shape = SubResource("RectangleShape2D_0wfyh")
-
-[node name="ColorRect" type="ColorRect" parent="Bounds/CollisionShape2D" unique_id=1122145750]
-offset_left = -327.00003
-offset_top = -35.0
-offset_right = -287.00003
-offset_bottom = 5.0
-scale = Vector2(16.405445, 1.7209302)
-color = Color(0.57, 0.4104, 0.33060002, 1)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds" unique_id=1547620608]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1547620608]
 position = Vector2(652.375, -4116)
 shape = SubResource("RectangleShape2D_sugp2")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds" unique_id=1850737239]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=1850737239]
 position = Vector2(-11.875, -4117)
 shape = SubResource("RectangleShape2D_jyhfs")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds" unique_id=1566328911]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=1566328911]
 position = Vector2(307.8125, -8693.422)
 shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1748373847]
+collision_layer = 32
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1728860802]
+position = Vector2(330, 394.5)
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D2/CollisionShape2D" unique_id=447554701]
+offset_left = -350.0
+offset_top = -52.500008
+offset_right = -310.0
+offset_bottom = -12.500008
+scale = Vector2(17.488722, 2.2299943)
+color = Color(0.6123906, 0.41004652, 0.187949, 1)
 
 [node name="Landmine" parent="." unique_id=1135800262 instance=ExtResource("3_jyhfs")]
 position = Vector2(338, 320)
